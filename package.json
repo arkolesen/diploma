@@ -1,0 +1,11 @@
+{
+  "name": "Artyom Kolesen's diploma",
+  "version": "0.0.1",
+  "description": "Diploma of the student of the Belarussian State University of Informatics And Radioelectronics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Artyom Kolesen",
+  "license": "ISC"
+}
