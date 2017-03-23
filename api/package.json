@@ -1,0 +1,15 @@
+{
+  "name": "dummy-face-recognition-system-api",
+  "version": "1.0.0",
+  "description": "Api for Dummy face recognition system",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon *.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
