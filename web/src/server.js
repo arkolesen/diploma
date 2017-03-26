@@ -1,12 +1,43 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const stylus = require('stylus');
 
-app.get('/', function (req, res) {
-  res.send('Hello From Web!');
+const app = express();
+let path = require ('path');
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+
+app.use(stylus.middleware({
+    src: __dirname + '/public/css',
+    compile,
+}));
+
+app.use(express.static(__dirname + '/public'));
+
+app.get('/', (req, res, next) => {
+    res.render('pages/index', {
+      root: '',
+      staticRoot: '',
+    });
+    next();
 });
 
-let port = 7001;
+app.get('/add-face', (req, res, next) => {
+    res.render('pages/add-face', {
+      root: '',
+      staticRoot: '',
+    });
+    next();
+})
 
-app.listen(port, function () {
+const port = 8001;
+
+app.listen(port, () => {
   console.log('Server is up and listening on ' + port + ' port');
 });
+
+
+function compile(str, path) {
+  return stylus(str)
+    .set('filename', path);
+}

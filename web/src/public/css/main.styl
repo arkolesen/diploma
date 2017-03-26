@@ -1,0 +1,72 @@
+@import 'variables'
+
+html, body
+	padding: 0
+	margin: 0
+	font: font-size/line-height font-family-main
+	font-weight: font-weight-main
+	color: color-text
+	background: color-bg
+
+h1
+	color: #db4864
+
+header
+	background-color: grey
+
+header, aside, article, footer
+	padding: 16px;
+
+header
+	img
+		float: left
+
+	 h1
+		color: lightgrey
+		font: 48px font-family-header
+		font-weight: font-weight-header
+		margin-top: 10px
+
+aside
+	nav a
+		text-decoration: none
+		color: color-nav-links
+		padding: 8px
+		&:hover
+			color: color-nav-links-hover
+
+footer
+	font-size: 12px
+	color: color-footer-color
+
+
+@media screen and (max-width: 480px)
+	header, aside, article footer
+		padding: 8px
+
+	header img
+		float: none
+		margin: 0
+
+@media screen and (max-width: 720px)
+	header img
+		float: none
+		margin: 0
+
+	header
+		text-align: center
+
+@media screen and (min-width: 961px)
+	aside
+		position: fixed
+		left: 0
+		width: 160px
+		nav a
+			display: block
+
+	article
+		margin-left: 176px
+		max-width: 900px
+
+	footer
+		clear: both
