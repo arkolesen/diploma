@@ -1,4 +1,3 @@
 {
-  "watch": ["*.js"],
-  "ignore": ["*.json"]
+  "watch": "."
 }

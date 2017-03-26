@@ -1,0 +1,18 @@
+version: '2'
+services:
+  web:
+    build:
+      context: web
+    ports:
+      - 7001:7001
+    restart: always
+    volumes:
+      - ./web:/usr/src/app
+  api:
+    build:
+      context: api
+    ports:
+      - 7000:7000
+    restart: always
+    volumes:
+      - ./api:/usr/src/app
