@@ -4,10 +4,10 @@ block main
     link(rel='stylesheet', href='/css/video.css')
     .row
       .video
-      //- .col-md-4
-      //-   .camera
-      //-     video#video Недоступно
-      //-     button#startbutton Снимок
+      .col-md-4
+        .camera
+          img(id="video" src="http://localhost:8081" alt="Недоступно")
+          button#startbutton Снимок
       //-
       //-   canvas#canvas
       //-
@@ -33,5 +33,3 @@ block main
       //-
       //-   .output
       //-     img#photo(alt="Снимок будет тут")
-
-    script(src="scripts/index.js")
