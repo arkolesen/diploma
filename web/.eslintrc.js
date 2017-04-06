@@ -1,12 +1,10 @@
 module.exports = {
-    extends: 'airbnb-base',
     parserOptions: {
         ecmaVersion: 6,
         sourceType: 'script', // modules are not yet supported by Node.js
     },
     env: {
         node: true,
-        mocha: true,
     },
     settings: {
         'import/resolver': {
@@ -20,14 +18,6 @@ module.exports = {
         // alphabetically sorted list of base rules' overrides
         'indent': ['error', 4, { 'SwitchCase': 1 }],
         'max-len': ['error', 120],
-        'new-cap': ['error', {
-            capIsNewExceptions: [
-                'Sequelize.ENUM',
-                'Sequelize.STRING',
-                'express.Router'
-            ],
-        }],
-        'no-debugger': 'warn', // avoid making it an 'error' - it'll break dev flow
         'no-restricted-syntax': ['error', 'TryStatement', 'ForInStatement', 'LabeledStatement', 'WithStatement'],
         'no-underscore-dangle': ['error', { allow: ['_id'] }], // unable to avoid usage of MongoDB hardcoded ID field name
         'no-use-before-define': ['error', { 'functions': false }],

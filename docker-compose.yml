@@ -17,15 +17,22 @@ services:
     restart: always
     volumes:
       - ./api:/usr/src/app
+      - /dev/bus/usb:/dev/bus/usb
+    devices:
+      - /dev/bus/usb:/dev/bus/usb
+      - /dev/ttyACM0:/dev/ttyACM0
+    privileged: true
+    tty: true
+
 
   motion:
     build:
-      context: motion
+      context: api/src/motion
     ports:
       - 8081:8081
       - 8082:8082
     volumes:
-      - ./motion:/usr/src/app
+      - ./api/src/motion:/usr/src/app
     devices:
       - /dev/video0:/dev/video0
     #   - /dev/video1:/dev/video1
