@@ -17,7 +17,10 @@
     "nodemon": "^1.11.0"
   },
   "dependencies": {
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.3",
     "express": "^4.14.1",
-    "johnny-five": "^0.10.6"
+    "johnny-five": "^0.10.6",
+    "shelljs": "^0.7.7"
   }
 }

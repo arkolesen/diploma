@@ -1,4 +1,29 @@
 extends ../layout
 
 block main
-    h1  Страница добавления человека 
+    link(rel='stylesheet', href='/css/video.css')
+    h1  Страница добавления человека
+
+    .row
+      .video.clearfix
+      .col-md-4
+        #camera1
+          #stream1
+              img(id="video1" src="http://localhost:8081" alt="Недоступно")
+          form#camera-1-form.form-inline
+              input.form-control(type="text" name="firstName" placeholder="Имя" )
+              input.form-control(type="text" name="lastName" placeholder="Фамилия" )
+              button.btn.btn-primary(type="submit" disabled="disabled") Отправить
+          button#snapshotButton1.btn.btn-default(value="1" disabled="disabled") Снимок 1
+          button#snapshotButton2.btn.btn-default(value="2" disabled="disabled") Снимок 2
+          button#snapshotButton3.btn.btn-default(value="3" disabled="disabled") Снимок 3
+          button#snapshotButton4.btn.btn-default(value="4" disabled="disabled") Снимок 4
+          canvas#canvas1
+
+      .col-md-4
+        .camera
+          img(id="video1" src="http://localhost:8082" alt="Недоступно")
+          button#startbutton2 Снимок
+
+    script(src='/scripts/camera1.js')
+    script(src='/scripts/camera2.js')

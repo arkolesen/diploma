@@ -2,7 +2,6 @@
 
 const express = require('express');
 const stylus = require('stylus');
-
 const app = express();
 let path = require('path');
 
