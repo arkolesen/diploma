@@ -30,7 +30,7 @@ app.get('/main', (req, res) => {
     res.send('Hello From Api!');
 });
 
-app.post('/make-photo', copyPhotoService.makePhoto);
+app.post('/make-photo', copyPhotoService.makePersonPhoto);
 app.post('/add-person', addPersonService.addPerson);
 
 const port = 8000;

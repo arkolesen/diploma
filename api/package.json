@@ -21,6 +21,7 @@
     "cors": "^2.8.3",
     "express": "^4.14.1",
     "johnny-five": "^0.10.6",
-    "shelljs": "^0.7.7"
+    "shelljs": "^0.7.7",
+    "translit": "0.0.1"
   }
 }

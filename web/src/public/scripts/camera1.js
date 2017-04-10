@@ -59,6 +59,10 @@ function initCam1() {
 
         }
 
+        if (isFirstPhodoMade && isSecondPhodoMade && isThirdPhodoMade && isFourthPhodoMade) {
+            document.querySelector('#camera-1-form button').removeAttribute('disabled');
+        }
+
         let photoId = `cam1Photo${snapShotNumber}`;
 
         let photoDiv = document.createElement('div');
@@ -71,11 +75,28 @@ function initCam1() {
             `;
 
         document.getElementById('camera1').appendChild(photoDiv);
+//TODO: uncomment this lines
+
+        // let now = moment();
+        //
+        // let year = now.format('YYYY');
+        // let month = now.format('MM');
+        // let day = now.format('DD');
+        // let hours = now.utc().format('HH');
+        // let minutes = now.format('mm');
+        // let seconds = now.format('ss');
+
+        // document.getElementById(photoId).src =
+        //`http://localhost:8000/cameras/Camera1/${year}${month}${day}${hours}${minutes}${seconds}-snapshot.jpg`;
+
+        document.getElementById(photoId).src =
+            `http://localhost:8000/cameras/Camera1/20170410181051-snapshot.jpg`;
 
         let data = {
             camera: 1,
             firstName: firstName.value,
             lastName: lastName.value,
+            snapshotTime: '20170410181051', //${year}${month}${day}${hours}${minutes}${seconds}
         };
 
         $.ajax({
@@ -85,13 +106,9 @@ function initCam1() {
             contentType: 'application/json',
             data: JSON.stringify(data),
         })
-            .done(res => console.log(res));
-
-        document.getElementById(photoId).src = 'http://localhost:8000/cameras/Camera1/lastsnap.jpg';
-
-        if (isFirstPhodoMade && isSecondPhodoMade && isThirdPhodoMade && isFourthPhodoMade) {
-            document.querySelector('#camera-1-form button').removeAttribute('disabled');
-        }
+            .done(res => {
+                console.log(res);
+            });
     }
 
     function submitForm(e) {
