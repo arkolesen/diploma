@@ -1,4 +1,4 @@
-FROM node:6
+FROM ubuntu:16.04
 
 # Create app directory
 ARG APP_DIR=/usr/src/app
@@ -8,5 +8,7 @@ WORKDIR $APP_DIR
 # Bundle app source
 COPY . $APP_DIR
 
+RUN apt-get update
+RUN apt-get --yes install motion
 
-ENTRYPOINT cd /usr/src/app && npm i && npm start
+ENTRYPOINT cd /usr/src/app && su -c motion -s /bin/sh
