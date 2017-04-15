@@ -15,16 +15,8 @@ app.use(stylus.middleware({
 
 app.use(express.static(`${__dirname}/public`));
 
-app.get('/', (req, res, next) => {
+app.get('*', (req, res, next) => {
     res.render('pages/index', {
-        root: '',
-        staticRoot: '',
-    });
-    next();
-});
-
-app.get('/add-face', (req, res, next) => {
-    res.render('pages/add-face', {
         root: '',
         staticRoot: '',
     });

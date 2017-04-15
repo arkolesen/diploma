@@ -10,8 +10,7 @@ let bodyParser = require('body-parser');
 let app = express();
 let board = new five.Board();
 
-let copyPhotoService = require('./services/copy-photo');
-let addPersonService = require('./services/add-person');
+let personService = require('./services/person');
 
 app.use(cors({ credentials: true, origin: true }));
 
@@ -20,19 +19,7 @@ app.use('/static', express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/last', (req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.contentType('jpeg');
-    res.sendFile(path.join(__dirname, '/motion/Camera1/lastsnap.jpg'));
-});
-
-app.get('/main', (req, res) => {
-    res.send('Hello From Api!');
-});
-
-app.post('/make-photo', copyPhotoService.makePersonPhoto);
-app.post('/add-person', addPersonService.addPerson);
-app.post('/recognize', addPersonService.recognize);
+app.post('/recognize', personService.recognize);
 
 const port = 8000;
 
