@@ -37,8 +37,40 @@ function initCam1() {
             }
         }, false);
 
+    document.getElementById('recognize').addEventListener('click', (e) => {
+        recognize();
+        e.preventDefault();
+    }, false)
+
     function clearphoto() {
 
+    }
+
+    function recognize() {
+        let now = moment();
+
+        let year = now.format('YYYY');
+        let month = now.format('MM');
+        let day = now.format('DD');
+        let hours = now.utc().format('HH');
+        let minutes = now.format('mm');
+        let seconds = now.format('ss');
+
+        let data = {
+            camera: 1,
+            snapshotTime: `${year}${month}${day}${hours}${minutes}${seconds}`,
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:8000/recognize',
+            processData: false,
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+        })
+            .done(res => {
+                console.log(res);
+            });
     }
 
     function camSnapshot(snapShotNumber) {
@@ -75,28 +107,25 @@ function initCam1() {
             `;
 
         document.getElementById('camera1').appendChild(photoDiv);
-//TODO: uncomment this lines
 
-        // let now = moment();
-        //
-        // let year = now.format('YYYY');
-        // let month = now.format('MM');
-        // let day = now.format('DD');
-        // let hours = now.utc().format('HH');
-        // let minutes = now.format('mm');
-        // let seconds = now.format('ss');
+        let now = moment();
 
-        // document.getElementById(photoId).src =
-        //`http://localhost:8000/cameras/Camera1/${year}${month}${day}${hours}${minutes}${seconds}-snapshot.jpg`;
+        let year = now.format('YYYY');
+        let month = now.format('MM');
+        let day = now.format('DD');
+        let hours = now.utc().format('HH');
+        let minutes = now.format('mm');
+        let seconds = now.format('ss');
 
         document.getElementById(photoId).src =
-            `http://localhost:8000/cameras/Camera1/20170410181051-snapshot.jpg`;
+        `http://localhost:8000/cameras/Camera1/${year}${month}${day}${hours}${minutes}${seconds}-snapshot.jpg`;
 
         let data = {
             camera: 1,
             firstName: firstName.value,
             lastName: lastName.value,
-            snapshotTime: '20170410181051', //${year}${month}${day}${hours}${minutes}${seconds}
+            snapshotTime: `${year}${month}${day}${hours}${minutes}${seconds}`,
+            snapShotNumber,
         };
 
         $.ajax({

@@ -32,6 +32,7 @@ app.get('/main', (req, res) => {
 
 app.post('/make-photo', copyPhotoService.makePersonPhoto);
 app.post('/add-person', addPersonService.addPerson);
+app.post('/recognize', addPersonService.recognize);
 
 const port = 8000;
 
