@@ -1,48 +1,18 @@
-#video,
-#video1 {
+#video1,
+#video2 {
   border: 1px solid #000;
   box-shadow: 2px 2px 3px #000;
   width: 100%;
   margin-bottom: 30px;
-}
-#photo,
-#photo1 {
-  border: 1px solid #000;
-  box-shadow: 2px 2px 3px #000;
-  width: 320px;
-  height: 240px;
-}
-#canvas1 {
-  display: none;
 }
 #camera1,
 #camera2 {
   width: 100%;
   float: left;
+  position: relative;
 }
-.output {
-  width: 340px;
-}
-#startbutton,
-#startbutton1 {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  bottom: 32px;
-  background-color: rgba(0,150,0,0.5);
-  border: 1px solid rgba(255,255,255,0.7);
-  box-shadow: 0px 0px 1px 2px rgba(0,0,0,0.2);
-  font-size: 14px;
-  font-family: "Lucida Grande", "Arial", sans-serif;
-  color: #fff;
-}
-#camera-1-form {
-  margin-bottom: 30px;
-}
-.photoDiv {
-  float: left;
-  width: 50%;
-}
-.photoDiv img {
-  width: 100%;
+.face {
+  position: absolute;
+  border: 2px solid #00f;
+  border-radius: 50%;
 }
