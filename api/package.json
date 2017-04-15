@@ -17,11 +17,11 @@
     "nodemon": "^1.11.0"
   },
   "dependencies": {
+    "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
     "cors": "^2.8.3",
     "express": "^4.14.1",
     "johnny-five": "^0.10.6",
-    "shelljs": "^0.7.7",
-    "translit": "0.0.1"
+    "opencv": "^6.0.0"
   }
 }

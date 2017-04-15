@@ -6,31 +6,16 @@ block main
       .video
       .col-md-4
         .camera
-          img(id="video" src="http://localhost:8081" alt="Недоступно")
-
+            #camera1
+              #stream1
+                  img(id="video1" src="http://localhost:8081" alt="Недоступно")
 
       .col-md-4
         .camera
-          img(id="video1" src="http://localhost:8082" alt="Недоступно")
-      //-
+            #camera2
+              #stream2
+                  img(id="video2" src="http://localhost:8082" alt="Недоступно")
 
-      //-
-      //- .col-md-4
-      //-   .camera
-      //-     video#video Недоступно
-      //-     button#startbutton Снимок
-      //-
-      //-   canvas#canvas
-      //-
-      //-   .output
-      //-     img#photo(alt="Снимок будет тут")
-      //-
-      //- .col-md-4
-      //-   .camera
-      //-     video#video Недоступно
-      //-     button#startbutton Снимок
-      //-
-      //-   canvas#canvas
-      //-
-      //-   .output
-      //-     img#photo(alt="Снимок будет тут")
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js')
+    script(src='/scripts/camera1.js')
+    script(src='/scripts/camera2.js')
