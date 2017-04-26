@@ -35,4 +35,4 @@ services:
       - ./api/src/motion:/usr/src/app
     devices:
       - /dev/video0:/dev/video0
-    #   - /dev/video1:/dev/video1
+      - /dev/video1:/dev/video1

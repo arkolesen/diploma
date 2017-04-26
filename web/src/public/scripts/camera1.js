@@ -1,8 +1,10 @@
 function initCam1() {
-    setInterval(recognize, 300);
+    startRecognizeFromCamera1();
 }
 
-function recognize() {
+let cam1FacesCount = 0;
+
+function startRecognizeFromCamera1() {
     let now = moment();
 
     let year = now.format('YYYY');
@@ -25,25 +27,23 @@ function recognize() {
         data: JSON.stringify(data),
     })
         .done(res => {
+            clearCam1();
+
             let faces = res;
 
-            console.log(faces);
-
-            if (faces.length === 0 && document.querySelector('#camera1 a')) {
-                document.querySelector('#camera1 a').remove();
-            }
+            cam1FacesCount = faces;
 
             if (faces.length > 0) {
                 faces.forEach((face, index) => {
-                    if (document.getElementById(`face-${index}`)) {
-                        document.getElementById(`face-${index}`).remove();
+                    if (document.getElementById(`cam1-face-${index}`)) {
+                        document.getElementById(`cam1-face-${index}`).remove();
                     }
 
                     let faceArea = document.createElement('a');
 
-                    faceArea.className = 'face';
+                    faceArea.className = 'face cam1-face';
 
-                    faceArea.setAttribute('id', `face-${index}`);
+                    faceArea.setAttribute('id', `cam1-face-${index}`);
 
                     let photoWidth = document.getElementById('camera1').clientWidth;
 
@@ -62,7 +62,17 @@ function recognize() {
                     document.getElementById('camera1').appendChild(faceArea);
                 })
             }
+
+            startRecognizeFromCamera1();
         });
 }
 
 window.addEventListener('load', initCam1, false);
+
+function clearCam1() {
+    let faceCount = document.getElementsByClassName('cam1-face').length;
+
+    for (let i = 0; i < faceCount; i +=1) {
+        document.getElementById(`cam1-face-${i}`).parentNode.removeChild(document.querySelector(`#cam1-face-${i}`));
+    }
+}
