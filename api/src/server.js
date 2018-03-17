@@ -7,6 +7,12 @@ let cors = require('cors');
 let path = require('path');
 let bodyParser = require('body-parser');
 
+let { FileCleaner } = require('cron-file-cleaner');
+
+let fileWatcher = new FileCleaner(`${__dirname}/motion/Camera1/`, 3000, '* */1 * * * *');
+
+fileWatcher.start();
+
 let app = express();
 let board = new five.Board();
 
